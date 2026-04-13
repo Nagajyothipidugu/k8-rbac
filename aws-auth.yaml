@@ -1,0 +1,19 @@
+apiVersion: v1
+data:
+  mapRoles: |
+    - rolearn: arn:aws:iam::767828753925:role/eksctl-roboshop-1-nodegroup-robosh-NodeInstanceRole-dAO6m8PX2yYt
+      groups:
+      - system:bootstrappers
+      - system:nodes
+      username: system:node:{{EC2PrivateDNSName}}
+  mapUsers: |
+    - groups:
+      - system:roboshop-trainee
+      userarn: arn:aws:iam::767828753925:user/jyothi
+      username: jyothi  
+kind: ConfigMap
+metadata:
+  creationTimestamp: "2026-04-13T06:49:54Z"
+  name: aws-auth
+  namespace: kube-system
+  uid: 24c06b15-17fa-4dd6-9310-e7ad638026e9
